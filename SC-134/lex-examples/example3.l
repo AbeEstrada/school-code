@@ -13,7 +13,7 @@ sum {
     printf("ADITION OPERATOR ");
 }
 [0-9]+ {
-    printf("NUMBER ");
+    printf("%s NUMBER ", yytext);
 }
 ; {
     printf("END OF STATEMENT ");
