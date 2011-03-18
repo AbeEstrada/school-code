@@ -11,8 +11,6 @@ def main():
     if arg[1].isdigit():
         number = int(arg[1])
         if number > 0 and number <= 9:
-        #if len(arg[1]) == 1:
-            #print number * 2
             if number == 1:
                 print 1+1
             elif number == 2:
