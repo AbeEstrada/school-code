@@ -2,7 +2,7 @@ import sys
 
 def main():
     """Black-box or functional testing is one in which test 
-    conditions are developed based on the program or system’s 
+    conditions are developed based on the program or system's 
     functionality, i.e., the tester re- quires information 
     about the input data and observed output, but does not know 
     how the program or system works. """
