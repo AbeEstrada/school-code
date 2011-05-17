@@ -23,22 +23,26 @@ void tokens(const std::string &data) {
                 if (std::isspace(c)) {
                     x++;
                     
+                } else if (c == '\"') {
+                    mode = MODE_IN_STRING;
+                    x++;
+                            
                 } else if (std::isalnum(c)) {
                     mode = MODE_IN_WORD;
-                    
+                
                 } else {
                     mode = MODE_SYMBOL;
                 }
                 break;
                 
             case MODE_IN_STRING:
-                if (std::isalnum(c) || std::isspace(c)) {
-                    string += c;
-                    
-                } else if (c == '\"') {
+                if (c == '\"') {
                     std::cout << "string: " << string << std::endl;
                     string.erase();
                     mode = MODE_OUTSIDE;
+                    
+                } else {
+                    string += c;
                 }
                 x++;
                 break;
@@ -52,7 +56,7 @@ void tokens(const std::string &data) {
                     if (search_string(keywords, keywords_size, word)) {
                         std::cout << "reserved: " << word << std::endl;
                         
-                    } else if (is_string == 0) {
+                    } else {
                         std::cout << "word: " << word << std::endl;
                     }
                     word.erase();
@@ -62,10 +66,7 @@ void tokens(const std::string &data) {
                 
             case MODE_SYMBOL:
                 if (!std::isalnum(c) && !std::isspace(c)) {
-                    if (c == '\"') {
-                        mode = MODE_IN_STRING;
-                        
-                    } else if (c == ';') {
+                    if (c == ';') {
                         std::cout << "[" << c << "] end of line" << std::endl;
                         
                     } else {
