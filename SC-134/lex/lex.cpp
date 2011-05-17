@@ -14,7 +14,7 @@ int main() {
     std::string line;
     
     while(std::getline(std::cin, line)) {
-        get_tokens(line);
+        tokens(line); // print tokens
     }
     
     return 0;
