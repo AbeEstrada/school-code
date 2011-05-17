@@ -37,7 +37,7 @@ void tokens(const std::string &data) {
                 
             case MODE_IN_STRING:
                 if (c == '\"') {
-                    std::cout << "string: " << string << std::endl;
+                    //std::cout << "string: " << string << std::endl;
                     string.erase();
                     mode = MODE_OUTSIDE;
                     
@@ -54,10 +54,18 @@ void tokens(const std::string &data) {
                     
                 } else {
                     if (search_string(keywords, keywords_size, word)) {
-                        std::cout << "reserved: " << word << std::endl;
+                        //std::cout << "reserved: " << word << std::endl;
+                        // Homework
+                        if (word.compare("while") == 0) {
+                            _while_counter++;
+                        } else if (word.compare("if") == 0) {
+                            _if_counter++;
+                        }
                         
                     } else {
-                        std::cout << "identifier: " << word << std::endl;
+                        //std::cout << "identifier: " << word << std::endl;
+                        // Homework
+                        _identifiers_counter++;
                     }
                     word.erase();
                     mode = MODE_OUTSIDE;
@@ -67,10 +75,14 @@ void tokens(const std::string &data) {
             case MODE_SYMBOL:
                 if (!std::isalnum(c) && !std::isspace(c)) {
                     if (c == ';') {
-                        std::cout << "end of line" << c << std::endl;
+                        //std::cout << "end of line" << c << std::endl;
                         
                     } else {
-                        std::cout << "[" << c << "] " << std::endl;
+                        //std::cout << "[" << c << "] " << std::endl;
+                        // Homework
+                        if (c == '=') {
+                            _equal_counter++;
+                        }
                     }
                     x++;
                     
