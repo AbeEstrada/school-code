@@ -57,7 +57,7 @@ void tokens(const std::string &data) {
                         std::cout << "reserved: " << word << std::endl;
                         
                     } else {
-                        std::cout << "word: " << word << std::endl;
+                        std::cout << "identifier: " << word << std::endl;
                     }
                     word.erase();
                     mode = MODE_OUTSIDE;
@@ -67,7 +67,7 @@ void tokens(const std::string &data) {
             case MODE_SYMBOL:
                 if (!std::isalnum(c) && !std::isspace(c)) {
                     if (c == ';') {
-                        std::cout << "[" << c << "] end of line" << std::endl;
+                        std::cout << "end of line" << c << std::endl;
                         
                     } else {
                         std::cout << "[" << c << "] " << std::endl;
