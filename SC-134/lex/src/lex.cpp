@@ -19,7 +19,7 @@ int _identifiers_counter = 0; */
 int main() {
     std::string line;
     
-    while(std::getline(std::cin, line)) {
+    while(std::getline(std::cin, line)) { // read line by line of the given file
         tokens(line); // print tokens
     }
     
