@@ -6,11 +6,15 @@
 #include <iostream>
 #include <string>
 
-#include "homework.h" // Homework
-
 #include "keywords.h"
 #include "search.h"
 #include "tokens.h"
+
+/* Homework
+int _while_counter = 0;
+int _if_counter = 0;
+int _equal_counter = 0;
+int _identifiers_counter = 0; */
 
 int main() {
     std::string line;
