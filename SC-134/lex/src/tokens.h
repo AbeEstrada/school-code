@@ -6,12 +6,14 @@ void tokens(const std::string &data) {
     enum {
         MODE_OUTSIDE,
         MODE_IN_STRING,
+        MODE_IN_VAR,
         MODE_IN_WORD,
         MODE_SYMBOL
     } mode = MODE_OUTSIDE;
     
     int is_string = 0;
     std::string string;
+    std::string var;
     std::string word;
     std::string::size_type x = 0;
     
@@ -26,6 +28,10 @@ void tokens(const std::string &data) {
                 } else if (c == '\"') {
                     mode = MODE_IN_STRING;
                     x++;
+                    
+                } else if (c == '@') {
+                    mode = MODE_IN_VAR;
+                    x++;
                             
                 } else if (std::isalnum(c) || c == '_') {
                     mode = MODE_IN_WORD;
@@ -37,7 +43,7 @@ void tokens(const std::string &data) {
                 
             case MODE_IN_STRING:
                 if (c == '\"') {
-                    //std::cout << "string: " << string << std::endl;
+                    std::cout << "string: " << string << std::endl;
                     string.erase();
                     mode = MODE_OUTSIDE;
                     
@@ -47,6 +53,18 @@ void tokens(const std::string &data) {
                 x++;
                 break;
             
+            case MODE_IN_VAR:
+                if (std::isalnum(c) || c == '@') {
+                    var += c;
+                    x++;
+                    
+                } else {
+                    std::cout << "variable: @" << var << std::endl;
+                    var.erase();
+                    mode = MODE_OUTSIDE;
+                }
+                break;
+                
             case MODE_IN_WORD:
                 if (std::isalnum(c) || c == '_') {
                     word += c;
@@ -63,9 +81,16 @@ void tokens(const std::string &data) {
                         }*/
                         
                     } else {
-                        std::cout << "identifier: " << word << std::endl;
-                        /* Homework
-                        _identifiers_counter++; */
+                        int number = atoi(word.c_str());
+                        
+                        if (number) {
+                            std::cout << "digit: " << number << std::endl;
+                            
+                        } else {
+                            std::cout << "word: " << word << std::endl;
+                            /* Homework
+                            _identifiers_counter++; */
+                        }
                     }
                     word.erase();
                     mode = MODE_OUTSIDE;
