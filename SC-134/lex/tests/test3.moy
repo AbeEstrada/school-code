@@ -1,0 +1,7 @@
+@resta = 10;
+cuando @resta > 0;
+    si @resta < 6;
+        wacha @resta;
+    simon;
+    @resta = @resta - 1;
+entonces;
