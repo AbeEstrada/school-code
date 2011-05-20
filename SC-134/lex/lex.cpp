@@ -19,11 +19,12 @@ int main() {
         tokens(line); // print tokens
     }
     
-    // Homework
+    /* Homework
+    std::cout << "========================" << std::endl;
     std::cout << "while: " << _while_counter << std::endl;
     std::cout << "if: " << _if_counter << std::endl;
     std::cout << "=: " << _equal_counter << std::endl;
-    std::cout << "identifiers: " << _identifiers_counter << std::endl;
+    std::cout << "identifiers: " << _identifiers_counter << std::endl; */
     
     return 0;
 }

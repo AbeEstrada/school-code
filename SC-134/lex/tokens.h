@@ -20,14 +20,14 @@ void tokens(const std::string &data) {
         
         switch(mode) {
             case MODE_OUTSIDE:
-                if (std::isspace(c)) {
+                if (std::isspace(c) || std::iscntrl(c)) {
                     x++;
                     
                 } else if (c == '\"') {
                     mode = MODE_IN_STRING;
                     x++;
                             
-                } else if (std::isalnum(c)) {
+                } else if (std::isalnum(c) || c == '_') {
                     mode = MODE_IN_WORD;
                 
                 } else {
@@ -48,24 +48,24 @@ void tokens(const std::string &data) {
                 break;
             
             case MODE_IN_WORD:
-                if (std::isalnum(c)) {
+                if (std::isalnum(c) || c == '_') {
                     word += c;
                     x++;
                     
                 } else {
                     if (search_string(keywords, keywords_size, word)) {
-                        //std::cout << "reserved: " << word << std::endl;
-                        // Homework
+                        std::cout << "reserved: " << word << std::endl;
+                        /* Homework
                         if (word.compare("while") == 0) {
                             _while_counter++;
                         } else if (word.compare("if") == 0) {
                             _if_counter++;
-                        }
+                        }*/
                         
                     } else {
-                        //std::cout << "identifier: " << word << std::endl;
-                        // Homework
-                        _identifiers_counter++;
+                        std::cout << "identifier: " << word << std::endl;
+                        /* Homework
+                        _identifiers_counter++; */
                     }
                     word.erase();
                     mode = MODE_OUTSIDE;
@@ -75,14 +75,14 @@ void tokens(const std::string &data) {
             case MODE_SYMBOL:
                 if (!std::isalnum(c) && !std::isspace(c)) {
                     if (c == ';') {
-                        //std::cout << "end of line" << c << std::endl;
+                        std::cout << "end of line" << c << std::endl;
                         
                     } else {
-                        //std::cout << "[" << c << "] " << std::endl;
-                        // Homework
+                        std::cout << "[" << c << "] " << std::endl;
+                        /* Homework
                         if (c == '=') {
                             _equal_counter++;
-                        }
+                        } */
                     }
                     x++;
                     
