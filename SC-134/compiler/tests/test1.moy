@@ -1,0 +1,4 @@
+@mensaje = "hola";
+si @mensaje;
+    wacha @mensaje;
+simon;

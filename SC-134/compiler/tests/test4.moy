@@ -1,0 +1,14 @@
+@moisito = 3.8;
+@chavita = 12.3;
+
+@suma = @moisito + @chavita;
+wacha @suma;
+
+@restita = @chavita - @moisito;
+wacha @restita;
+
+@multi = @chavita * @moisito;
+wacha @multi;
+
+@divis = @chavita / @moisito;
+wacha @divis;

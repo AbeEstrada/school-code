@@ -1,0 +1,6 @@
+@conta = 1;
+cuando @conta < 8;
+    wacha @conta;
+    @conta = @conta + 1;
+entonces;
+wacha @conta;
