@@ -1,0 +1,1 @@
+A school project to learn how to create a lexical analyzer and a parser
