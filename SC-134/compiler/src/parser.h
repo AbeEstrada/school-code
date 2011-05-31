@@ -18,17 +18,22 @@ void parse(std::vector< std::vector<int> > &v_tokens) {
             int next = v_tokens[i][j+1]; // next token
             // get current token and set rules and check grammar
             switch(current) {
-                case 0: {
+                case D_STRING: {
                     std::cout << "STRING ";
-                    int rules[] = {
-                        D_DELIMITER
-                    };
-                    int rules_size = sizeof(rules) / sizeof(int);
-                    check_grammar(current, next, rules, rules_size);
+                    if (j != 0) { // if it is not in the beggining
+                        int rules[] = {
+                            D_DELIMITER
+                        };
+                        int rules_size = sizeof(rules) / sizeof(int);
+                        check_grammar(current, next, rules, rules_size);
+                    } else {
+                        std::cout << "<< ERROR BEGGINING OF THE LINE" << std::endl;
+                        exit(1);
+                    }
                     break;
                 }
                 
-                case 1: {
+                case D_VARIABLE: {
                     std::cout << "VARIABLE ";
                     if (j == 0) { // if it is the first
                         int rules[] = {
@@ -48,7 +53,7 @@ void parse(std::vector< std::vector<int> > &v_tokens) {
                     break;
                 }
                 
-                case 2: {
+                case D_RESERVED: {
                     std::cout << "RESERVED ";
                     int rules[] = {
                         D_DELIMITER,
@@ -61,38 +66,52 @@ void parse(std::vector< std::vector<int> > &v_tokens) {
                     break;
                 }
                 
-                case 3: {
+                case D_DIGIT: {
                     std::cout << "DIGIT ";
-                    int rules[] = {
-                        D_DELIMITER,
-                        D_OPERATOR
-                    };
-                    int rules_size = sizeof(rules) / sizeof(int);
-                    check_grammar(current, next, rules, rules_size);
+                    if (j != 0) { // if it is not in the beggining
+                        int rules[] = {
+                            D_DELIMITER,
+                            D_OPERATOR
+                        };
+                        int rules_size = sizeof(rules) / sizeof(int);
+                        check_grammar(current, next, rules, rules_size);
+                    } else {
+                        std::cout << "<< ERROR BEGGINING OF THE LINE" << std::endl;
+                        exit(1);
+                    }
                     break;
                 }
                 
-                case 4: {
+                case D_WORD: {
                     std::cout << "WORD << NOT DEFINED" << std::endl;
                     exit(1);
                     break;
                 }
                 
-                case 5: {
+                case D_DELIMITER: {
                     std::cout << "DELIMITER ";
+                    if (j == 0) { // if it is in the beggining
+                        std::cout << "<< ERROR UNEXPECTED DELIMITER" << std::endl;
+                        exit(1);
+                    }
                     break;
                 }
                 
-                case 6: {
+                case D_OPERATOR: {
                     std::cout << "OPERATOR ";
-                    int rules[] = {
-                        D_DELIMITER,
-                        D_DIGIT,
-                        D_STRING,
-                        D_VARIABLE
-                    };
-                    int rules_size = sizeof(rules) / sizeof(int);
-                    check_grammar(current, next, rules, rules_size);
+                    if (j != 0) { // if it is not in the beggining
+                        int rules[] = {
+                            D_DELIMITER,
+                            D_DIGIT,
+                            D_STRING,
+                            D_VARIABLE
+                        };
+                        int rules_size = sizeof(rules) / sizeof(int);
+                        check_grammar(current, next, rules, rules_size);
+                    } else {
+                        std::cout << "<< ERROR BEGGINING OF THE LINE" << std::endl;
+                        exit(1);
+                    }
                     break;
                 }
                 
