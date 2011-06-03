@@ -60,7 +60,7 @@ void lex(const std::string &data) {
                 break;
             
             case MODE_IN_VAR:
-                if (std::isalnum(c) || c == '@') { // the cariables can only contain letters and numbers
+                if (std::isalnum(c)) { // the cariables can only contain letters and numbers
                     var += c; // store all the chars
                     x++; // next char
                     
