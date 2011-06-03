@@ -90,7 +90,7 @@ void parse(std::vector< std::vector<int> > &v_tokens) {
                 
                 case D_DELIMITER: {
                     std::cout << "DELIMITER ";
-                    if (j == 0) { // if it is in the beggining
+                    if ((j == 0) || (next == D_DELIMITER)) { // if it is in the beggining
                         std::cout << "<< ERROR UNEXPECTED DELIMITER" << std::endl;
                         exit(1);
                     }
