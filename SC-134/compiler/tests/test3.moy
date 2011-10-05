@@ -2,6 +2,6 @@
 cuando @resta > 1;
     si @resta < 6;
         wacha @resta;
-    simon;
+    simona;
     @resta = @resta - 1;
 entonces;
