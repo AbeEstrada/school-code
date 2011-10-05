@@ -1,6 +1,7 @@
 Description
 ===========
-Pieces of code that I write for my school subjects
+Pieces of code that I write for my school classes
 
-* SC-134 - Compilers and Interpreters
+* DS-166 - Internet Applications (Java)
+* SC-134 - Compilers and Interpreters (C++)
 * CM-425 - Software Testing
