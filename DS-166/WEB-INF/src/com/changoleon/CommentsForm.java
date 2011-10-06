@@ -7,6 +7,10 @@ import javax.servlet.http.*;
 
 import freemarker.template.*;
 
+import java.sql.*;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 public class CommentsForm extends HttpServlet {
     private Configuration cfg; 
     
@@ -49,17 +53,31 @@ public class CommentsForm extends HttpServlet {
         String _comments = ("".equals(request.getParameter("comments"))) ? "" : request.getParameter("comments");
         params.put("comments", _comments);
         
-        /*while(paramNames.hasMoreElements()) { // Multiple parameters
-            String paramName = (String)paramNames.nextElement();
-            String[] paramValues = request.getParameterValues(paramName);
-            if (paramValues.length == 1) {
-                String paramValue = paramValues[0];
-                    if (paramValue.length() == 0)
-                        params.put(paramName, "");
-                    else
-                        params.put(paramName, paramValue);
+        if (_first_name.length() != 0 && _last_name.length() != 0 && _comments.length() != 0) {
+            Connection con = null;
+            Statement st = null;
+            
+            String dbuser = "";
+            String dbpass = "";
+            String dbname = "";
+            String dburl = "jdbc:mysql://localhost:3306/"+dbname;
+            
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                con = DriverManager.getConnection(dburl, dbuser, dbpass);
+                
+                st = con.createStatement();
+                st.executeUpdate("INSERT INTO `comments` (`first_name`, `last_name`, `comments`) VALUES('"+_first_name+"', '"+_last_name+"', '"+_comments+"');");
+                
+                con.close();
+                
+            } catch (ClassNotFoundException e) {
+                System.err.println(">>> Exception: "+e.getMessage());
+                
+            } catch(SQLException e) {
+                System.err.println(">>> SQLException: "+e.getMessage());
             }
-        }*/
+        }
         
         Template t = cfg.getTemplate("commentsresult.html");
         
