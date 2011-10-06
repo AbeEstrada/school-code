@@ -40,7 +40,16 @@ public class CommentsForm extends HttpServlet {
         Map params = new HashMap();
         root.put("params", params);
         
-        while(paramNames.hasMoreElements()) {
+        String _first_name = request.getParameter("first_name");
+        params.put("first_name", _first_name);
+        
+        String _last_name = request.getParameter("last_name");
+        params.put("last_name", _last_name);
+        
+        String _comments = request.getParameter("comments");
+        params.put("comments", _comments);
+        
+        /*while(paramNames.hasMoreElements()) {
             String paramName = (String)paramNames.nextElement();
             String[] paramValues = request.getParameterValues(paramName);
             if (paramValues.length == 1) {
@@ -50,7 +59,7 @@ public class CommentsForm extends HttpServlet {
                     else
                         params.put(paramName, paramValue);
             }
-        }
+        }*/
         
         Template t = cfg.getTemplate("commentsresult.html");
         
