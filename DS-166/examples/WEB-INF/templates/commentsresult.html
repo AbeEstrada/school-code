@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>${title}</title>
+</head>
+<body>
+    <h1>${title}</h1>
+    <#if params.first_name != ""><p><strong>Nombre:</strong> ${params.first_name}</p></#if>
+    <#if params.last_name != ""><p><strong>Apellido:</strong> ${params.last_name}</p></#if>
+    <#if params.comments != ""><p><strong>Comentarios:</strong><br /> ${params.comments}</p></#if>
+</body>
+</html>

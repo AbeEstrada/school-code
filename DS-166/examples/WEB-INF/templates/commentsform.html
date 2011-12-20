@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>${title}</title>
+</head>
+<body>
+    <h1>${title}</h1>
+    <form action="./comentarios" method="post" accept-charset="utf-8">
+        <p><label for="nombre">Nombre: </label><input type="text" name="first_name" value="" /></p>
+        <p><label for="apellido">Apellido: </label><input type="text" name="last_name" value="" /></p>
+        <p>
+            Comentarios:<br />
+            <textarea name="comments" rows="8" cols="40"></textarea>
+        </p>
+        <p><input type="submit" value="Enviar" /></p>
+    </form>
+</body>
+</html>
