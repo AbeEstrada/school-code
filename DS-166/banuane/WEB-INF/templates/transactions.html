@@ -1,0 +1,17 @@
+<h1>Transacciones</h1>
+
+<#if errors??><ul class="formerrors"><li>${errors}</li></ul></#if>
+
+<form action="." method="post" name="transactions">
+
+    <p><label>Tipo:</label>
+        <select name="type" class="lion"> 
+            <option value="1">Envio de Dinero</option>
+        	<option value="2">Transferencia de Saldo</option>
+        </select> 
+    </p>
+    <p><label>Cantidad:</label> <input type="text" name="amount"  class="lion" /></p>
+    <p><label>Cuenta:</label> <input type="text" name="account"  class="lion" /></p>
+    <p><a href="#" class="button" id="submit">Enviar</a></p>
+    
+</form>

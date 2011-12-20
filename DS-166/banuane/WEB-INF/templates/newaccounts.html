@@ -1,0 +1,33 @@
+<h1>Apertura de Cuenta</h1>
+
+<form action="." method="post" name="newaccount">
+    <p><label for="first_name">Nombre(s): </label><input type="text" name="first_name" value="" class="lion" /></p>
+    <p><label for="last_name">Apellidos: </label><input type="text" name="last_name" value="" class="lion" /></p>
+    <p><label for="telephone">Tel&eacute;fono: </label><input type="text" name="telephone" value="" class="lion" maxlength="10" /></p>
+    <p><label for="address">Direcci&oacute;n: </label><input type="text" name="address" value="" class="lion" /></p>
+    <p>Fecha de Nacimiento:</p>
+    <p>
+        <select name="day" size="1" class="lion">
+        <#list 1..31 as b_day>
+            <option value="${b_day?string("00")}">${b_day?string("00")}</option>
+        </#list>
+        </select>
+        <select name="month" size="1" class="lion">
+        <#assign b_months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]>
+        <#list b_months as b_month>
+        <#assign b_month_i=b_month_index+1>
+            <option value="${b_month_i?string("00")}">${b_month}</option>
+        </#list>
+        </select>
+        <select name="year" size="1" class="lion">
+        <#list 1993..1900 as b_year>
+            <option value="${b_year?string("####")}">${b_year?string("####")}</option>
+        </#list>
+        </select>
+    </p>
+    <p><label for="password">Contrase&ntilde;a: </label><input type="password" name="password" value="" class="lion" /></p> 
+    <p><label for="password2">Confirmar<br />Contrase&ntilde;a: </label><input type="password" name="password2" value="" class="lion" /></p> 
+    <p><label for="email">Email: </label><input type="text" name="email" value="" class="lion" /></p>
+    <p><label for="balance">Saldo: </label><input type="text" name="balance" value="" class="lion" maxlength="6"/></p>
+    <p><a href="#" class="button" id="submit">Enviar</a></p>
+</form>

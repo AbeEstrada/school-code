@@ -1,0 +1,26 @@
+<#if account??>
+<h1>No Cuenta: ${account}</h1>
+<p>${first_name} ${last_name}</p>
+<p><strong>Saldo: $${balance}</strong></p>
+<hr />
+<h2>Transacciones</h2>
+<table border="0" cellspacing="0" cellpadding="0">
+<#list transactions as t>
+    <tr>
+        <td>${t.name}</td>
+        <#assign action = t.action>
+        <td class="<#if action == "0">red<#elseif action == "1">green</#if>">$${t.amount}</td>
+        <td>${t.date}</td>
+        <td>${t.time}</td>
+    </tr>
+</#list>
+</table>
+
+<#else>
+<h1>Acceder a mi cuenta</h1>
+<form action="." method="post" name="login" id="login">
+    <p><label for="cuenta">Cuenta: </label><input type="text" name="account" value="" class="lion" /></p>
+    <p><label for="contrasena">Contrase&ntilde;a: </label><input type="password" name="password" value="" class="lion" /></p>
+    <p><a href="#" class="button" id="submit">Acceder</a></p>
+</form>
+</#if>

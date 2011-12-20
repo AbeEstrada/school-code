@@ -1,0 +1,128 @@
+body {
+    background: #E6E6E6;
+}
+strong {
+    font-weight: bold;
+}
+#main {
+    background: #E6E6E6;
+    width: 100%;
+    height: 100%;
+    border-top: 3px solid #682335;
+    font-family: Arial, "MS Trebuchet", sans-serif;
+    overflow: hidden;
+}
+#container {
+    width: 970px;
+    margin: 20px auto;
+}
+header {
+    width: 100%;
+    overflow: hidden;
+}
+header #logo {
+    float: left;
+    width: 350px;
+}
+header #date {
+    float: right;
+    width: 250px;
+    margin-top: 85px;
+    text-align: right;
+}
+nav, section {
+    background: #FFF;
+    width: 100%;
+    padding: 5px;
+}
+nav {
+    background: #CCCCCC;
+    width: 100%;
+    margin-top: 10px;
+    padding-bottom: 5px;
+    color: #4C4C4C;
+    overflow: hidden;
+    
+    border-top: 1px solid #F3F3F3;
+    border-left: 1px solid #F3F3F3;
+    border-right: 1px solid #F3F3F3;
+    border-radius: 5px 5px 0px 0px; 
+    -moz-border-radius: 5px 5px 0px 0px; 
+    -webkit-border-radius: 5px 5px 0px 0px;
+}
+nav a {
+    color: #4C4C4C;
+}
+nav a:hover,
+nav a.current {
+    color: #1E1E1E;
+}
+section {
+    border-bottom: 1px solid #F3F3F3;
+    border-left: 1px solid #F3F3F3;
+    border-right: 1px solid #F3F3F3;
+    border-radius: 0px 0px 5px 5px; 
+    -moz-border-radius: 0px 0px 5px 5px; 
+    -webkit-border-radius: 0px 0px 5px 5px;
+    overflow: hidden;
+}
+section hr {
+    border: 1px solid #B0B0B0;
+    height: 0px;
+    overflow: hidden;
+}
+section h1, h2 {
+    font-weight: bold;
+}
+section h1 {
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+section h2 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+section p {
+    margin-bottom: 10px;
+    padding-bottom: 2px;
+    clear: both;
+    overflow: hidden;
+}
+section .formerrors {
+    list-style-type: disc;
+    list-style-position: inside;
+    color: #FF0000;
+    margin-bottom: 10px;
+    padding: 10px 0px;
+}
+section .formerrors li {
+    padding-bottom: 3px;
+}
+section form {
+}
+section form label {
+    float: left;
+    width: 100px;
+}
+section form#login label { width: 100px; }
+section form input[type=text],
+section form input[type=password] {
+    width: 200px;
+    font-size: 14px;
+}
+
+section table,
+section table tr,
+section table th,
+section table td {
+    border: 1px solid #7F7F7F;
+}
+section table td {
+    padding: 5px;
+}
+section table td.red {
+    color: #FF0000;
+}
+section table td.green {
+    color: #00FF00;
+}

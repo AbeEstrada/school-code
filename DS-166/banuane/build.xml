@@ -1,0 +1,27 @@
+<project name="banuane" basedir="." default="compile">
+    <property name="lib.dir" value="WEB-INF/lib/" />
+    <property name="src.dir" value="WEB-INF/src/" />
+    <property name="build.dir" value="WEB-INF/classes/" />
+    
+    <path id="classpath">
+        <fileset dir="${lib.dir}" includes="*.jar"/>
+    </path>
+    
+    <target name="clean">
+        <echo>Cleaning the ${build.dir}</echo>
+        <delete dir="${build.dir}"/>
+    </target>
+    
+    <target name="init" depends="clean">
+        <echo>Creating the build directory</echo>
+        <mkdir dir="${build.dir}"/>
+    </target>
+    
+    <target name="compile" depends="init">
+        <echo>Compile the source files</echo>
+        <javac srcdir="${src.dir}" destdir="${build.dir}" includeantruntime="false" deprecation="yes" debug="yes">
+            <classpath refid="classpath" />
+            <!-- <compilerarg value="-Xlint:unchecked"/> -->
+        </javac>
+    </target>
+</project>

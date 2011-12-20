@@ -1,0 +1,23 @@
+<h1>Dep&oacute;sito a:</h1>
+
+<#if errors??><ul class="formerrors"><li>${errors}</li></ul></#if>
+
+<form action="." method="post" name="deposit"> 
+    <p><label>Nombre(s):</label> <input type="text" name="first_name"  class="lion" /></p>
+    <p><label>Apellidos:</label> <input type="text" name="last_name"  class="lion" /></p>
+    <p><label>Cuenta:</label> <input type="text" name="account"  class="lion" /></p>
+    <p><label>Moneda:</label>
+        <input type="radio" name="currency" value="pesos" checked /> Pesos
+        <input type="radio" name="currency" value="dolares" /> D&oacute;lares
+    </p>
+    <p><label>Cantidad: </label><input type="text" name="amount" value="" class="lion" /></p>
+    <p><label>Tipo:</label>
+        <select name="type" class="lion"> 
+            <option value="1">Efectivo 
+            <option value="2">Cheques 
+        </select> 
+    </p>
+    <p><label>Comentarios:</label></p>
+    <p><textarea cols="30" rows="7" name="comments"></textarea></p>
+    <p><a href="#" class="button" id="submit">Depositar</a></p>
+</form>
